@@ -46,7 +46,7 @@ public class ServletLoginRestrito extends HttpServlet {
             Funcionario func = funcDao.EfetuarLogin(login, senha);
 
             if (func != null) {
-                response.sendRedirect("cadastrar-consulta.jsp");
+                response.sendRedirect("home.jsp");
             }
             else {
                 response.sendRedirect("cadastrar-consulta.jsp");
@@ -71,7 +71,13 @@ public class ServletLoginRestrito extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+        try {
+            processRequest(request, response);
+        }
+        catch(Exception ex) {
+        System.out.println("Erro Process Request " + ex);
+        }
     }
 
     /**

@@ -51,7 +51,7 @@ public class ServletCadastrarConsulta extends HttpServlet {
         ConsultaDao dao = new ConsultaDao();
         
         String urlRetorno = "restrito/listarConsultas.jsp?";
-        if (dao.ValidarConsulta(consulta))
+        if (dao.validarConsulta(consulta))
         {
             urlRetorno += "status=true";
         }
@@ -78,8 +78,8 @@ public class ServletCadastrarConsulta extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletCadastrarConsulta.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -96,8 +96,8 @@ public class ServletCadastrarConsulta extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletCadastrarConsulta.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

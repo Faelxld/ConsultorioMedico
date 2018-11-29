@@ -24,7 +24,7 @@ public class ConsultaDao {
         this.cn = new ConnectionFactory().Connect();
     }
     
-    public void CadastrarConsulta(Consulta consulta) throws SQLException
+    public void cadastrarConsulta(Consulta consulta) throws SQLException
     {
         String query = 
                 " insert into consulta " + 
@@ -66,7 +66,7 @@ public class ConsultaDao {
         return rs;
     }
     
-    public boolean ValidarConsulta(Consulta consulta) throws SQLException
+    public boolean validarConsulta(Consulta consulta) throws SQLException
     {
         String query = 
                 "select * from consulta "
@@ -85,7 +85,7 @@ public class ConsultaDao {
         if (!rs.next()) 
         {
             status = true;
-            CadastrarConsulta(consulta);
+            cadastrarConsulta(consulta);
         }
         
         return status;

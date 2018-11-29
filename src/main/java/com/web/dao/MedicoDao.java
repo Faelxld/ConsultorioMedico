@@ -21,7 +21,7 @@ public class MedicoDao {
     private Connection cn;
     
     public MedicoDao() {
-        this.cn = new ConnectionFactory().Connect();
+        this.cn = new ConnectionFactory().connect();
     }
     
     public Medico EfetuarLogin(String cpf, String senha) throws SQLException {

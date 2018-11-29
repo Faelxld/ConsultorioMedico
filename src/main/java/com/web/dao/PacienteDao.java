@@ -21,7 +21,7 @@ public class PacienteDao {
     private Connection cn;
     
     public PacienteDao() {
-        this.cn = new ConnectionFactory().Connect();
+        this.cn = new ConnectionFactory().connect();
     }
     
     public Paciente efetuarLogin(String cpf, String senha) throws SQLException  {

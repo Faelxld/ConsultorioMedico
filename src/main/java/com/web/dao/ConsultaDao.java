@@ -21,7 +21,7 @@ public class ConsultaDao {
     private Connection cn;
 
     public ConsultaDao() {
-        this.cn = new ConnectionFactory().Connect();
+        this.cn = new ConnectionFactory().connect();
     }
     
     public void cadastrarConsulta(Consulta consulta) throws SQLException

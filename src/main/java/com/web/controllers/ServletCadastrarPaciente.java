@@ -52,7 +52,7 @@ public class ServletCadastrarPaciente extends HttpServlet {
             response.sendRedirect("atualizar.jsp");
         }
         catch (Exception ex){
-            System.err.println("Erro");
+            System.err.println("Erro " + ex);
         }    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -19,8 +19,8 @@ public class Paciente {
     public Paciente() {
     }
 
-    public Paciente(String Cpf, String nome, String telefone, String email, String senha) {
-        this.cpf = Cpf;
+    public Paciente(String cpf, String nome, String telefone, String email, String senha) {
+        this.cpf = cpf;
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
@@ -31,8 +31,8 @@ public class Paciente {
         return cpf;
     }
 
-    public void setCpf(String Cpf) {
-        this.cpf = Cpf;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getNome() {

@@ -46,7 +46,7 @@ public class ConsultaDao {
             stmt.execute();
             stmt.close();
         }catch (SQLException ex){
-            stmt.close();
+
         }
 
     }

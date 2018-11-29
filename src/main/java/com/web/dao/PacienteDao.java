@@ -24,7 +24,7 @@ public class PacienteDao {
         this.cn = new ConnectionFactory().Connect();
     }
     
-    public Paciente efetuarLogin(String cpf, String senha) throws SQLException, ConexaoFalhouException {
+    public Paciente efetuarLogin(String cpf, String senha) throws SQLException, ConexaoFalhou {
         String query = " select * from paciente where cpf=? and senha=? ";
         PreparedStatement stmt = null;
         ResultSet rs = null;

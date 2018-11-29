@@ -31,17 +31,24 @@ public class ConsultaDao {
                 "(cod_paciente, cod_medico, tipo, data, hora_inicial, hora_final, observacoes) " + 
                 "values (?, ?, ?, ?, ?, ?, ?) ";
         
-        PreparedStatement stmt = cn.prepareStatement(query);
-        
-        stmt.setString(1, consulta.getPaciente());
-        stmt.setString(2, consulta.getMedico());
-        stmt.setString(3, consulta.getTipo());
-        stmt.setString(4, consulta.getData());
-        stmt.setString(5, consulta.getHoraInicial());
-        stmt.setString(6, consulta.getHoraFinal());
-        stmt.setString(7, consulta.getObservacoes());
-        stmt.execute();
-        stmt.close();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = cn.prepareStatement(query);
+
+            stmt.setString(1, consulta.getPaciente());
+            stmt.setString(2, consulta.getMedico());
+            stmt.setString(3, consulta.getTipo());
+            stmt.setString(4, consulta.getData());
+            stmt.setString(5, consulta.getHoraInicial());
+            stmt.setString(6, consulta.getHoraFinal());
+            stmt.setString(7, consulta.getObservacoes());
+            stmt.execute();
+            stmt.close();
+        }catch (SQLException ex){
+            stmt.close();
+        }
+
     }
  
       public ResultSet listarConsulta(String cpf) throws SQLException
@@ -66,29 +73,35 @@ public class ConsultaDao {
         return rs;
     }
     
-    public boolean validarConsulta(Consulta consulta) throws SQLException
-    {
-        String query = 
+    public boolean validarConsulta(Consulta consulta) throws SQLException {
+        String query =
                 "select * from consulta "
-                + "where cod_medico = ? and hora_inicial = ? and hora_final=? and data = ? ";
-        PreparedStatement stmt = cn.prepareStatement(query);
+                        + "where cod_medico = ? and hora_inicial = ? and hora_final=? and data = ? ";
+        PreparedStatement stmt = null;
 
-        stmt.setString(1, consulta.getMedico());
-        stmt.setString(2, consulta.getHoraInicial());
-        stmt.setString(3, consulta.getHoraFinal());
-        stmt.setString(4, consulta.getData());
+        try {
+            stmt = cn.prepareStatement(query);
+            stmt.setString(1, consulta.getMedico());
+            stmt.setString(2, consulta.getHoraInicial());
+            stmt.setString(3, consulta.getHoraFinal());
+            stmt.setString(4, consulta.getData());
 
-        ResultSet rs = stmt.executeQuery();
-        
-        boolean status = false;
-        
-        if (!rs.next()) 
-        {
-            status = true;
-            cadastrarConsulta(consulta);
+            ResultSet rs = stmt.executeQuery();
+
+            boolean status = false;
+
+            if (!rs.next()) {
+                status = true;
+                cadastrarConsulta(consulta);
+            }
+
+            return status;
+        }catch (SQLException ex){
+            return false;
         }
-        
-        return status;
     }
+
+
+
     
 }

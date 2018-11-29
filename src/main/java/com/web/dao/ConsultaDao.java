@@ -33,7 +33,6 @@ public class ConsultaDao {
         
         PreparedStatement stmt = null;
 
-        try {
             stmt = cn.prepareStatement(query);
 
             stmt.setString(1, consulta.getPaciente());
@@ -45,9 +44,7 @@ public class ConsultaDao {
             stmt.setString(7, consulta.getObservacoes());
             stmt.execute();
             stmt.close();
-        }catch (SQLException ex){
 
-        }
 
     }
  

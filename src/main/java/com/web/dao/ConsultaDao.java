@@ -44,7 +44,7 @@ public class ConsultaDao {
         stmt.close();
     }
  
-      public ResultSet ListarConsulta(String cpf) throws SQLException
+      public ResultSet listarConsulta(String cpf) throws SQLException
     {
         ResultSet rs;
         String query = 

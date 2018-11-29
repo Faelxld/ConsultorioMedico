@@ -76,7 +76,7 @@ public class ServletLoginRestrito extends HttpServlet {
             processRequest(request, response);
         }
         catch(Exception ex) {
-        System.out.println("Erro Process Request " + ex);
+        System.err.println("Erro Process Request " + ex);
         }
     }
 

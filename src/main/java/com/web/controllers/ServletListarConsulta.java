@@ -44,7 +44,7 @@ public class ServletListarConsulta extends HttpServlet {
  
         ConsultaDao dao = new ConsultaDao();
         
-        ResultSet rs  = dao.ListarConsulta(request.getParameter("cpf"));
+        ResultSet rs  = dao.listarConsulta(request.getParameter("cpf"));
         
        ArrayList<Consulta> result = new ArrayList<Consulta>();
  

@@ -1,4 +1,4 @@
-package com.web.ConsultorioMedico;
+package com.web.consultoriomedico;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

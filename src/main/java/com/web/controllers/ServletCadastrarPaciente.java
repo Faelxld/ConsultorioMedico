@@ -32,19 +32,29 @@ public class ServletCadastrarPaciente extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
-        response.setContentType("text/html;charset=UTF-8");
-        
-        Paciente paciente = new Paciente();
-        paciente.setNome(request.getParameter("txtNome"));
-        paciente.setCpf(request.getParameter("txtCpf"));
-        paciente.setTelefone(request.getParameter("txtTelefone"));
-        paciente.setEmail(request.getParameter("txtEmail"));
-        paciente.setSenha(request.getParameter("txtSenha"));
-        
-        PacienteDao dao = new PacienteDao();
-        dao.cadastrarPaciente(paciente);
-        
-        response.sendRedirect("atualizar.jsp");
+
+
+        try {
+
+
+            response.setContentType("text/html;charset=UTF-8");
+
+            Paciente paciente = new Paciente();
+            paciente.setNome(request.getParameter("txtNome"));
+            paciente.setCpf(request.getParameter("txtCpf"));
+            paciente.setTelefone(request.getParameter("txtTelefone"));
+            paciente.setEmail(request.getParameter("txtEmail"));
+            paciente.setSenha(request.getParameter("txtSenha"));
+
+            PacienteDao dao = new PacienteDao();
+            dao.cadastrarPaciente(paciente);
+
+            response.sendRedirect("atualizar.jsp");
+        }
+        catch (Exception ex){
+
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -61,8 +71,10 @@ public class ServletCadastrarPaciente extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (SQLException ex) {
+        } catch (ServletException ex) {
             Logger.getLogger(ServletCadastrarPaciente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -81,6 +93,7 @@ public class ServletCadastrarPaciente extends HttpServlet {
             processRequest(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(ServletCadastrarPaciente.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
 

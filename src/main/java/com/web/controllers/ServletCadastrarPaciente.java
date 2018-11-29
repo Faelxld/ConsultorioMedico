@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package controllers;
 
-import beans.Paciente;
-import dao.PacienteDao;
+package com.web.controllers;
+
+import com.web.beans.Paciente;
+import com.web.dao.PacienteDao;
+
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -46,7 +42,7 @@ public class ServletCadastrarPaciente extends HttpServlet {
         paciente.setSenha(request.getParameter("txtSenha"));
         
         PacienteDao dao = new PacienteDao();
-        dao.CadastrarPaciente(paciente);
+        dao.cadastrarPaciente(paciente);
         
         response.sendRedirect("atualizar.jsp");
     }

@@ -49,7 +49,7 @@ public class PacienteDao {
 
             return paciente;
         } catch (SQLException e) {
-            return null;
+            return new Paciente();
 
         }
 

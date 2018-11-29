@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package com.web.controllers;
 
-import beans.Paciente;
-import dao.PacienteDao;
+
+import com.web.beans.Paciente;
+import com.web.dao.PacienteDao;
+
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,8 +43,9 @@ public class ServletLoginPaciente extends HttpServlet {
         String senha = request.getParameter("txtSenha");
         
         PacienteDao dao = new PacienteDao();
-        Paciente paciente = dao.EfetuarLogin(cpf, senha);
-        
+        Paciente paciente;
+        paciente = dao.efetuarLogin(cpf, senha);
+
         if (paciente != null) {
             response.sendRedirect("restrito/pacientes/index.jsp");
         }

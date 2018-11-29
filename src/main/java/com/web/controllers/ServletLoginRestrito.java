@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package com.web.controllers;
 
-import beans.Funcionario;
-import dao.FuncionarioDao;
+import com.web.beans.Funcionario;
+import com.web.dao.FuncionarioDao;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -95,7 +95,7 @@ public class ServletLoginRestrito extends HttpServlet {
             processRequest(request, response);
         }
         catch(Exception ex) {
-            System.out.println("Erro Process Request " + ex);
+            System.err.println("Erro Process Request " + ex);
         }
     }
 

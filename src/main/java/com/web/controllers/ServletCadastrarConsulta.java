@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package com.web.controllers;
 
-import beans.Consulta;
-import dao.ConsultaDao;
+import com.web.beans.Consulta;
+import com.web.dao.ConsultaDao;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -51,7 +51,7 @@ public class ServletCadastrarConsulta extends HttpServlet {
         ConsultaDao dao = new ConsultaDao();
         
         String urlRetorno = "restrito/listarConsultas.jsp?";
-        if (dao.ValidarConsulta(consulta)) 
+        if (dao.ValidarConsulta(consulta))
         {
             urlRetorno += "status=true";
         }

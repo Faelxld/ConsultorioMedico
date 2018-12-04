@@ -171,7 +171,7 @@ public class Consulta implements Serializable {
 
     @Override
     public String toString() {
-        return "com.igor.mavenproject1.Consulta[ codigo=" + codigo + " ]";
+        return "[ codigo=" + codigo + " ]";
     }
     
 }

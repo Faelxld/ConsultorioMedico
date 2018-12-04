@@ -1,50 +1,34 @@
 package com.web.consultoriomedico.dto;
 
 import com.web.consultoriomedico.model.Consulta;
-import com.web.consultoriomedico.model.Medico;
+import com.web.consultoriomedico.model.Paciente;
 
-import javax.persistence.*;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.List;
 
-public class MedicoDTO {
+public class PacienteDTO {
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "codigo")
     private Integer codigo;
-    @Basic(optional = false)
-    @Column(name = "nome")
     private String nome;
-    @Basic(optional = false)
-    @Column(name = "cpf")
     private String cpf;
-    @Basic(optional = false)
-    @Column(name = "especialidade")
-    private String especialidade;
-    @Basic(optional = false)
-    @Column(name = "CRM")
-    private String crm;
-    @Basic(optional = false)
-    @Column(name = "senha")
     private String senha;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codMedico")
+    private String telefone;
+    private String email;
     private List<Consulta> consultaList;
 
-    public MedicoDTO() {
+    public PacienteDTO() {
     }
 
-    public MedicoDTO(Integer codigo) {
+    public PacienteDTO(Integer codigo) {
         this.codigo = codigo;
     }
 
-    public MedicoDTO(Medico obj) {
+    public PacienteDTO(Paciente obj) {
         this.codigo = obj.getCodigo();
         this.nome = obj.getNome();
         this.cpf = obj.getCpf();
-        this.especialidade = obj.getEspecialidade();
-        this.crm = obj.getCrm();
+        this.telefone = obj.getTelefone();
+        this.email = obj.getEmail();
         this.senha = obj.getSenha();
     }
 
@@ -72,20 +56,20 @@ public class MedicoDTO {
         this.cpf = cpf;
     }
 
-    public String getEspecialidade() {
-        return especialidade;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
-    public String getCrm() {
-        return crm;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCrm(String crm) {
-        this.crm = crm;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getSenha() {
@@ -115,10 +99,10 @@ public class MedicoDTO {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Medico)) {
+        if (!(object instanceof Paciente)) {
             return false;
         }
-        MedicoDTO other = (MedicoDTO) object;
+        PacienteDTO other = (PacienteDTO) object;
         if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))) {
             return false;
         }
@@ -127,6 +111,6 @@ public class MedicoDTO {
 
     @Override
     public String toString() {
-        return "[codigo=" + codigo + " ]";
+        return "[ codigo=" + codigo + " ]";
     }
 }

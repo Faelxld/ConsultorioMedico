@@ -156,7 +156,7 @@ public class Medico implements Serializable {
 
     @Override
     public String toString() {
-        return "com.igor.mavenproject1.Medico[ codigo=" + codigo + " ]";
+        return "[ codigo=" + codigo + " ]";
     }
     
 }

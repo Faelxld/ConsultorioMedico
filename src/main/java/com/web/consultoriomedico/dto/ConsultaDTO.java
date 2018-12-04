@@ -9,35 +9,14 @@ import java.util.Date;
 
 public class ConsultaDTO {
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "codigo")
     private Integer codigo;
-    @Basic(optional = false)
-    @Column(name = "tipo")
-    private String tipo;
-    @Basic(optional = false)
-    @Column(name = "data")
-    @Temporal(TemporalType.DATE)
     private Date data;
-    @Basic(optional = false)
-    @Column(name = "hora_inicial")
-    @Temporal(TemporalType.TIME)
     private Date horaInicial;
-    @Basic(optional = false)
-    @Column(name = "hora_final")
-    @Temporal(TemporalType.TIME)
-    private Date horaFinal;
-    @Basic(optional = false)
-    @Column(name = "observacoes")
     private String observacoes;
-    @JoinColumn(name = "cod_medico", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
     private Medico codMedico;
-    @JoinColumn(name = "cod_paciente", referencedColumnName = "codigo")
-    @ManyToOne(optional = false)
     private Paciente codPaciente;
+    private String tipo;
+    private Date horaFinal;
 
     public ConsultaDTO() {
     }
@@ -141,7 +120,7 @@ public class ConsultaDTO {
 
     @Override
     public String toString() {
-        return "com.igor.mavenproject1.Consulta[ codigo=" + codigo + " ]";
+        return "[ codigo=" + codigo + " ]";
     }
 
 }

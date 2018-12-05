@@ -40,12 +40,12 @@ public class MedicoDTO {
     }
 
     public MedicoDTO(Medico obj) {
-        this.codigo = obj.getCodigo();
-        this.nome = obj.getNome();
-        this.cpf = obj.getCpf();
+        this.codigo        = obj.getCodigo();
+        this.nome          = obj.getNome();
+        this.cpf           = obj.getCpf();
         this.especialidade = obj.getEspecialidade();
-        this.crm = obj.getCrm();
-        this.senha = obj.getSenha();
+        this.crm           = obj.getCrm();
+        this.senha         = obj.getSenha();
     }
 
     public Integer getCodigo() {
@@ -108,7 +108,7 @@ public class MedicoDTO {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (codigo != null ? codigo.hashCode() : 0);
+        hash    += (codigo != null ? codigo.hashCode() : 0);
         return hash;
     }
 

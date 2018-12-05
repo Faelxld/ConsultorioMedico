@@ -24,12 +24,12 @@ public class PacienteDTO {
     }
 
     public PacienteDTO(Paciente obj) {
-        this.codigo = obj.getCodigo();
-        this.nome = obj.getNome();
-        this.cpf = obj.getCpf();
+        this.codigo   = obj.getCodigo();
+        this.nome     = obj.getNome();
+        this.cpf      = obj.getCpf();
         this.telefone = obj.getTelefone();
-        this.email = obj.getEmail();
-        this.senha = obj.getSenha();
+        this.email    = obj.getEmail();
+        this.senha    = obj.getSenha();
     }
 
     public Integer getCodigo() {
@@ -92,7 +92,7 @@ public class PacienteDTO {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (codigo != null ? codigo.hashCode() : 0);
+        hash    += (codigo != null ? codigo.hashCode() : 0);
         return hash;
     }
 

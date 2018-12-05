@@ -30,7 +30,7 @@ public class MedicoResouce {
     @RequestMapping(method=RequestMethod.POST)
     public ResponseEntity<Void> insert(@Valid @RequestBody MedicoDTO objDto) {
         Medico obj = service.fromDTO(objDto);
-        obj = service.salvar(obj);
+               obj = service.salvar(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(obj.getCodigo()).toUri();
         return ResponseEntity.created(uri).build();
@@ -39,8 +39,8 @@ public class MedicoResouce {
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
     public ResponseEntity<Void> update(@Valid @RequestBody MedicoDTO objDto, @PathVariable Integer id) {
         Medico obj = service.fromDTO(objDto);
-        obj.setCodigo(id);
-        obj = service.atualizar(obj);
+               obj.setCodigo(id);
+               obj = service.atualizar(obj);
         return ResponseEntity.noContent().build();
     }
 
@@ -52,9 +52,8 @@ public class MedicoResouce {
 
     @RequestMapping(method=RequestMethod.GET)
     public ResponseEntity<List<MedicoDTO>> findAll() {
-        List<Medico> list = service.listar();
+        List<Medico>    list    = service.listar();
         List<MedicoDTO> listDto = list.stream().map(obj -> new MedicoDTO(obj)).collect(Collectors.toList());
         return ResponseEntity.ok().body(listDto);
     }
-
 }

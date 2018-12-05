@@ -69,12 +69,12 @@ public class Medico implements Serializable {
     }
 
     public Medico(Integer codigo, String nome, String cpf, String especialidade, String crm, String senha) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.cpf = cpf;
+        this.codigo        = codigo;
+        this.nome          = nome;
+        this.cpf           = cpf;
         this.especialidade = especialidade;
-        this.crm = crm;
-        this.senha = senha;
+        this.crm           = crm;
+        this.senha         = senha;
     }
 
     public Integer getCodigo() {
@@ -137,7 +137,7 @@ public class Medico implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (codigo != null ? codigo.hashCode() : 0);
+        hash    += (codigo != null ? codigo.hashCode() : 0);
         return hash;
     }
 
@@ -158,5 +158,4 @@ public class Medico implements Serializable {
     public String toString() {
         return "[ codigo=" + codigo + " ]";
     }
-    
 }

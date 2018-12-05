@@ -30,7 +30,7 @@ public class ConsultaResource {
     @RequestMapping(method=RequestMethod.POST)
     public ResponseEntity<Void> insert(@Valid @RequestBody ConsultaDTO objDto) {
         Consulta obj = service.fromDTO(objDto);
-        obj = service.salvar(obj);
+                 obj = service.salvar(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(obj.getCodigo()).toUri();
         return ResponseEntity.created(uri).build();
@@ -39,8 +39,8 @@ public class ConsultaResource {
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
     public ResponseEntity<Void> update(@Valid @RequestBody ConsultaDTO objDto, @PathVariable Integer id) {
         Consulta obj = service.fromDTO(objDto);
-        obj.setCodigo(id);
-        obj = service.atualizar(obj);
+                 obj.setCodigo(id);
+                 obj = service.atualizar(obj);
         return ResponseEntity.noContent().build();
     }
 
@@ -52,11 +52,8 @@ public class ConsultaResource {
 
     @RequestMapping(method=RequestMethod.GET)
     public ResponseEntity<List<ConsultaDTO>> findAll() {
-        List<Consulta> list = service.listar();
+        List<Consulta>    list    = service.listar();
         List<ConsultaDTO> listDto = list.stream().map(obj -> new ConsultaDTO(obj)).collect(Collectors.toList());
         return ResponseEntity.ok().body(listDto);
     }
-
-
-
 }

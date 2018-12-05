@@ -69,12 +69,12 @@ public class Paciente implements Serializable {
     }
 
     public Paciente(Integer codigo, String nome, String cpf, String telefone, String email, String senha) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.cpf = cpf;
+        this.codigo   = codigo;
+        this.nome     = nome;
+        this.cpf      = cpf;
         this.telefone = telefone;
-        this.email = email;
-        this.senha = senha;
+        this.email    = email;
+        this.senha    = senha;
     }
 
     public Integer getCodigo() {
@@ -137,7 +137,7 @@ public class Paciente implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (codigo != null ? codigo.hashCode() : 0);
+        hash    += (codigo != null ? codigo.hashCode() : 0);
         return hash;
     }
 
@@ -158,5 +158,4 @@ public class Paciente implements Serializable {
     public String toString() {
         return "[ codigo=" + codigo + " ]";
     }
-    
 }

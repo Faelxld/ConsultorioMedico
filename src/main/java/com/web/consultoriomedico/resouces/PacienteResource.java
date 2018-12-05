@@ -30,7 +30,7 @@ public class PacienteResource {
     @RequestMapping(method=RequestMethod.POST)
     public ResponseEntity<Void> insert(@Valid @RequestBody PacienteDTO objDto) {
         Paciente obj = service.fromDTO(objDto);
-        obj = service.salvar(obj);
+                 obj = service.salvar(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(obj.getCodigo()).toUri();
         return ResponseEntity.created(uri).build();
@@ -39,8 +39,8 @@ public class PacienteResource {
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
     public ResponseEntity<Void> update(@Valid @RequestBody PacienteDTO objDto, @PathVariable Integer id) {
         Paciente obj = service.fromDTO(objDto);
-        obj.setCodigo(id);
-        obj = service.atualizar(obj);
+                 obj.setCodigo(id);
+                 obj = service.atualizar(obj);
         return ResponseEntity.noContent().build();
     }
 
@@ -52,7 +52,7 @@ public class PacienteResource {
 
     @RequestMapping(method=RequestMethod.GET)
     public ResponseEntity<List<PacienteDTO>> findAll() {
-        List<Paciente> list = service.listar();
+        List<Paciente>    list    = service.listar();
         List<PacienteDTO> listDto = list.stream().map(obj -> new PacienteDTO(obj)).collect(Collectors.toList());
         return ResponseEntity.ok().body(listDto);
     }

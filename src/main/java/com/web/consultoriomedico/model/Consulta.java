@@ -77,11 +77,11 @@ public class Consulta implements Serializable {
     }
 
     public Consulta(Integer codigo, String tipo, Date data, Date horaInicial, Date horaFinal, String observacoes) {
-        this.codigo = codigo;
-        this.tipo = tipo;
-        this.data = data;
+        this.codigo      = codigo;
+        this.tipo        = tipo;
+        this.data        = data;
         this.horaInicial = horaInicial;
-        this.horaFinal = horaFinal;
+        this.horaFinal   = horaFinal;
         this.observacoes = observacoes;
     }
 
@@ -173,5 +173,4 @@ public class Consulta implements Serializable {
     public String toString() {
         return "[ codigo=" + codigo + " ]";
     }
-    
 }

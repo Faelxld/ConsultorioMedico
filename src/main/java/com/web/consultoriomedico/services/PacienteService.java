@@ -12,31 +12,26 @@ public class PacienteService {
     @Autowired
     PacienteRepository repository;
 
-
-    public Paciente findOne(Integer id ){
-
+    public Paciente findOne(Integer id ) {
         return repository.findOne(id);
-
     }
 
-    public List<Paciente> listar(){
-
+    public List<Paciente> listar() {
         return repository.findAll();
-
     }
 
-    public void deletar(Integer id){
+    public void deletar(Integer id) {
         repository.delete(id);
     }
 
-    public Paciente salvar(Paciente paciente){
+    public Paciente salvar(Paciente paciente) {
         return repository.save(paciente);
     }
 
-    public Paciente atualizar(Paciente paciente){
+    public Paciente atualizar(Paciente paciente) {
         return repository.saveAndFlush(paciente);
     }
     public Paciente fromDTO(PacienteDTO objDto) {
-        return new Paciente(objDto.getCodigo(),objDto.getNome(), objDto.getCpf(), objDto.getTelefone(),objDto.getEmail(),objDto.getSenha());
+        return new Paciente(objDto.getCodigo(), objDto.getNome(), objDto.getCpf(), objDto.getTelefone(), objDto.getEmail(), objDto.getSenha());
     }
 }

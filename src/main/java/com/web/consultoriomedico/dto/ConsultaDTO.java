@@ -9,14 +9,14 @@ import java.util.Date;
 
 public class ConsultaDTO {
     private static final long serialVersionUID = 1L;
-    private Integer codigo;
-    private Date data;
-    private Date horaInicial;
-    private String observacoes;
-    private Medico codMedico;
-    private Paciente codPaciente;
-    private String tipo;
-    private Date horaFinal;
+    private Integer           codigo;
+    private Date              data;
+    private Date              horaInicial;
+    private String            observacoes;
+    private Medico            codMedico;
+    private Paciente          codPaciente;
+    private String            tipo;
+    private Date              horaFinal;
 
     public ConsultaDTO() {
     }
@@ -26,11 +26,11 @@ public class ConsultaDTO {
     }
 
     public ConsultaDTO(Consulta obj) {
-        this.codigo = obj.getCodigo();
-        this.tipo = obj.getTipo();
-        this.data = obj.getData();
+        this.codigo      = obj.getCodigo();
+        this.tipo        = obj.getTipo();
+        this.data        = obj.getData();
         this.horaInicial = obj.getHoraInicial();
-        this.horaFinal = obj.getHoraFinal();
+        this.horaFinal   = obj.getHoraFinal();
         this.observacoes = obj.getObservacoes();
     }
 
@@ -101,7 +101,7 @@ public class ConsultaDTO {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (codigo != null ? codigo.hashCode() : 0);
+        hash    += (codigo != null ? codigo.hashCode() : 0);
         return hash;
     }
 
@@ -122,5 +122,4 @@ public class ConsultaDTO {
     public String toString() {
         return "[ codigo=" + codigo + " ]";
     }
-
 }

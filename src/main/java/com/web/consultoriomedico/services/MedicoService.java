@@ -12,32 +12,27 @@ public class MedicoService {
     @Autowired
     MedicoRepository repository;
 
-
-    public Medico findOne(Integer id ){
-
+    public Medico findOne(Integer id ) {
         return repository.findOne(id);
-
     }
 
-    public List<Medico> listar(){
-
+    public List<Medico> listar() {
         return repository.findAll();
-
     }
 
-    public void deletar(Integer id){
+    public void deletar(Integer id) {
         repository.delete(id);
     }
 
-    public Medico salvar(Medico medico){
+    public Medico salvar(Medico medico) {
         return repository.save(medico);
     }
 
-    public Medico atualizar(Medico medico){
+    public Medico atualizar(Medico medico) {
         return repository.saveAndFlush(medico);
     }
-    public Medico fromDTO(MedicoDTO objDto) {
-        return new Medico(objDto.getCodigo(), objDto.getNome(), objDto.getCpf(), objDto.getEspecialidade(), objDto.getCrm(), objDto.getSenha() );
-    }
 
+    public Medico fromDTO(MedicoDTO objDto) {
+        return new Medico(objDto.getCodigo(), objDto.getNome(), objDto.getCpf(), objDto.getEspecialidade(), objDto.getCrm(), objDto.getSenha());
+    }
 }

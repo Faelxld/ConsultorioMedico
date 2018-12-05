@@ -14,32 +14,27 @@ public class ConsultaService{
     @Autowired
     ConsultaRepository repository;
 
-
-    public Consulta findOne(Integer id ){
-
+    public Consulta findOne(Integer id ) {
         return repository.findOne(id);
-
     }
 
-    public List<Consulta> listar(){
-
+    public List<Consulta> listar() {
         return repository.findAll();
-
     }
 
-    public void deletar(Integer id){
+    public void deletar(Integer id) {
         repository.delete(id);
     }
 
-    public Consulta salvar(Consulta consulta){
+    public Consulta salvar(Consulta consulta) {
         return repository.save(consulta);
     }
 
-    public Consulta atualizar(Consulta consulta){
+    public Consulta atualizar(Consulta consulta) {
         return repository.saveAndFlush(consulta);
     }
+    
     public Consulta fromDTO(ConsultaDTO objDto) {
-        return new Consulta(objDto.getCodigo(),objDto.getTipo(), objDto.getData(), objDto.getHoraInicial(),objDto.getHoraFinal(),objDto.getObservacoes());
+        return new Consulta(objDto.getCodigo(), objDto.getTipo(), objDto.getData(), objDto.getHoraInicial(), objDto.getHoraFinal(), objDto.getObservacoes());
     }
-
 }

@@ -4,9 +4,12 @@ import com.web.consultoriomedico.dto.MedicoDTO;
 import com.web.consultoriomedico.model.Medico;
 import com.web.consultoriomedico.repositories.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+@Service
 public class MedicoService {
 
     @Autowired
